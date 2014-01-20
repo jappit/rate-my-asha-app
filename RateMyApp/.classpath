@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/cldc11.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr75_file.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr75_pim.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr82.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr120.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr135.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr172_rpc.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr172_xmlparser.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr177_crypto.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr179.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr184.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr205.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr211.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr226.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr234.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr238.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/jsr256.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/midp21.jar"/>
+	<classpathentry kind="lib" path="C:/Nokia/Devices/Nokia_Asha_SDK_1_1/lib/nokiaapi.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/dev/lib/j2me/kxml/kxml2-2.3.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
