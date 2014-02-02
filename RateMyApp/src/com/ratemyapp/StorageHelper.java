@@ -1,4 +1,4 @@
-package com.ratemyapp.helpers;
+package com.ratemyapp;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -9,9 +9,9 @@ import java.util.Hashtable;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
-public class StorageHelper
+class StorageHelper
 {
-	static final String RECORDSTORE_ID = "ratemyapp_settings";
+	private static final String RECORDSTORE_ID = "ratemyapp_settings";
 	
 	private Hashtable settings = null;
 	

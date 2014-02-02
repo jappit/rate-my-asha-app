@@ -1,16 +1,15 @@
-package com.ratemyapp.helpers;
+package com.ratemyapp;
 
 import java.util.Date;
 
-import com.ratemyapp.RateMyApp;
 
-public class FeedbackHelper
+class FeedbackHelper
 {
-	public static int FeedbackState_Inactive = 0;
-	public static int FeedbackState_Active = 1;
-	public static int FeedbackState_FirstReview = 2;
-	public static int FeedbackState_SecondReview = 3;
-	public static int FeedbackState_Feedback = 4;
+	public static final int FeedbackState_Inactive = 0;
+	public static final int FeedbackState_Active = 1;
+	public static final int FeedbackState_FirstReview = 2;
+	public static final int FeedbackState_SecondReview = 3;
+	public static final int FeedbackState_Feedback = 4;
 	
 	private StorageHelper storageHelper = null;
 
@@ -29,8 +28,6 @@ public class FeedbackHelper
     public FeedbackHelper()
     {
     	setState(FeedbackState_Active);
-    	
-    	this.loadState();
     }
 
     public Date getLastLaunchDate()
@@ -127,7 +124,7 @@ public class FeedbackHelper
     /// <summary>
     /// Loads last state from storage and works out the new state.
     /// </summary>
-    private void loadState()
+    public void loadState()
     {
         try
         {
@@ -184,17 +181,10 @@ public class FeedbackHelper
         }
     }
 
-    public void review()
+    public void review() throws Exception
     {
-    	try
-		{
-			RateMyApp.getInstance().getMIDlet().platformRequest("http://www.store.ovi.mobi/content/" + RateMyApp.getInstance().getAppID() + "/comments/add");
+    	RateMyApp.getInstance().getMIDlet().platformRequest("http://www.store.ovi.mobi/content/" + RateMyApp.getInstance().getAppID() + "/comments/add");
 			
-			reviewed();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		reviewed();
     }
 }

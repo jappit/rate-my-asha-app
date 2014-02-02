@@ -1,4 +1,4 @@
-package com.ratemyapp.helpers;
+package com.ratemyapp;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,16 +9,38 @@ import org.xmlpull.v1.XmlPullParser;
 
 import com.nokia.mid.ui.locale.Locale;
 
-public class LocalizedStrings
+class LocalizedStrings
 {
 	Hashtable strings = null;
 	
 	public LocalizedStrings(Locale locale)
 	{
+		this(resourceCodeFromLocale(locale));
+	}
+	public LocalizedStrings(String locale)
+	{
 		boolean resourcesLoaded = readResources(locale);
 		
 		if(!resourcesLoaded && locale != null)
 			resourcesLoaded = readResources(null);
+	}
+	private static String resourceCodeFromLocale(Locale locale)
+	{
+		if(locale == null)
+			return null;
+		
+		String resourceCode = "";
+		
+		if(locale.getLanguage() != null)
+		{
+			resourceCode += locale.getLanguage();
+			
+			String country = locale.getCountry();
+			
+			if(country != null && country.length() > 0)
+				resourceCode += "-" + country;
+		}
+		return resourceCode;
 	}
 	public void setString(String key, String value)
 	{
@@ -31,20 +53,17 @@ public class LocalizedStrings
 		return null;
 	}
 	
-	private boolean readResources(Locale locale)
+	private boolean readResources(String locale)
 	{
 		boolean resourceLoaded = false;
 		
 		String filename = "AppResources";
-		if(locale != null && locale.getLanguage() != null)
+		
+		if(locale != null)
 		{
-			filename += "." + locale.getLanguage();
-			
-			String country = locale.getCountry();
-			
-			if(country != null && country.length() > 0)
-				filename += "-" + country;
+			filename += "." + locale;
 		}
+		
 		filename += ".resx";
 		
 		InputStream is = null;
