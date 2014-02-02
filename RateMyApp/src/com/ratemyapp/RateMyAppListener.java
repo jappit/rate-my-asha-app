@@ -15,4 +15,9 @@ public interface RateMyAppListener
 	 * @param visible true if the component did become visible, false otherwise
 	 */
 	public void rmaVisibilityChanged(boolean visible);
+	
+	/**
+	 * Notifies that the {@link com.ratemyapp.RateMyApp} component is ready to be used
+	 */
+	public void rmaComponentReady();
 }

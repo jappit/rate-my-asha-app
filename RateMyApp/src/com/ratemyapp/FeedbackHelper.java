@@ -18,12 +18,13 @@ class FeedbackHelper
     private final String LastLaunchDateKey = "RATE_MY_APP_LAST_LAUNCH_DATE";
 
     private int firstCount = 5;
-    private int secondCount = 5;
+    private int secondCount = 10;
     private boolean countDays = false;
     private int state;
     private int launchCount = 0;
     private boolean reviewed = false;
     private Date lastLaunchDate = new Date();
+    private boolean reset = false;
     
     public FeedbackHelper()
     {
@@ -133,34 +134,37 @@ class FeedbackHelper
             setLaunchCount(Integer.parseInt(storageHelper.getSetting(LaunchCountKey), 10));
             setIsReviewed(Integer.parseInt(storageHelper.getSetting(ReviewedKey), 10) == 1);
             setLastLaunchDate(new Date(Long.parseLong(storageHelper.getSetting(LastLaunchDateKey))));
-            
-            System.out.println("SETTINGS: " + getLaunchCount() + ", " + getIsReviewed() + ", " + getLastLaunchDate() + ", " + getFirstCount() + ", " + getSecondCount());
-            
-            long lastLaunchDay = getLastLaunchDate().getTime() / 86400000;
-            long thisLaunchDay = new Date().getTime() / 86400000;
-
-            if (!getIsReviewed())
-            {
-                if (!getCountDays() || lastLaunchDay != thisLaunchDay)
-                {
-                    setLaunchCount(getLaunchCount() + 1);
-                    setLastLaunchDate(new Date());
-                }
-
-                if (getLaunchCount() == getFirstCount())
-                {
-                    setState(FeedbackState_FirstReview);
-                }
-                else if (getLaunchCount() == getSecondCount())
-                {
-                    setState(FeedbackState_SecondReview);
-                }	
-                storeState();
-            }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            System.out.println("FeedbackHelper.loadState - Failed to load state, Exception: " + ex.getMessage());
+        	e.printStackTrace();
+            System.out.println("FeedbackHelper.loadState - Failed to load state, Exception: " + e.getMessage());
+        }
+    }
+    public void launch()
+    {
+    	System.out.println("SETTINGS: " + getLaunchCount() + ", " + getIsReviewed() + ", " + getLastLaunchDate() + ", " + getFirstCount() + ", " + getSecondCount());
+        
+        long lastLaunchDay = getLastLaunchDate().getTime() / 86400000;
+        long thisLaunchDay = new Date().getTime() / 86400000;
+
+        if (!getIsReviewed())
+        {
+            if (!getCountDays() || lastLaunchDay != thisLaunchDay)
+            {
+                setLaunchCount(getLaunchCount() + 1);
+                setLastLaunchDate(new Date());
+            }
+
+            if (getLaunchCount() == getFirstCount())
+            {
+                setState(FeedbackState_FirstReview);
+            }
+            else if (getLaunchCount() == getSecondCount())
+            {
+                setState(FeedbackState_SecondReview);
+            }	
+            storeState();
         }
     }
 
@@ -175,9 +179,10 @@ class FeedbackHelper
             storageHelper.storeSetting(ReviewedKey, String.valueOf(getIsReviewed() ? 1 : 0), true);
             storageHelper.storeSetting(LastLaunchDateKey, String.valueOf(lastLaunchDate.getTime()), true);
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            System.out.println("FeedbackHelper.storeState - Failed to store state, Exception: " + ex.getMessage());
+        	e.printStackTrace();
+            System.out.println("FeedbackHelper.storeState - Failed to store state, Exception: " + e.getMessage());
         }
     }
 

@@ -11,36 +11,11 @@ import com.nokia.mid.ui.locale.Locale;
 
 class LocalizedStrings
 {
-	Hashtable strings = null;
+	private Hashtable strings = null;
 	
-	public LocalizedStrings(Locale locale)
+	public LocalizedStrings()
 	{
-		this(resourceCodeFromLocale(locale));
-	}
-	public LocalizedStrings(String locale)
-	{
-		boolean resourcesLoaded = readResources(locale);
-		
-		if(!resourcesLoaded && locale != null)
-			resourcesLoaded = readResources(null);
-	}
-	private static String resourceCodeFromLocale(Locale locale)
-	{
-		if(locale == null)
-			return null;
-		
-		String resourceCode = "";
-		
-		if(locale.getLanguage() != null)
-		{
-			resourceCode += locale.getLanguage();
-			
-			String country = locale.getCountry();
-			
-			if(country != null && country.length() > 0)
-				resourceCode += "-" + country;
-		}
-		return resourceCode;
+		strings = new Hashtable();
 	}
 	public void setString(String key, String value)
 	{
@@ -52,8 +27,7 @@ class LocalizedStrings
 			return (String)strings.get(key);
 		return null;
 	}
-	
-	private boolean readResources(String locale)
+	public boolean readResources(String locale)
 	{
 		boolean resourceLoaded = false;
 		

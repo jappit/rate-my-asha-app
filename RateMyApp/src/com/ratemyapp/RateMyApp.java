@@ -8,6 +8,7 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 
+import com.nokia.mid.ui.locale.Locale;
 import com.nokia.mid.ui.locale.LocaleManager;
 
 /**
@@ -169,12 +170,11 @@ public class RateMyApp
 		
 		this.commandListener = new RateMyAppCommandListener();
 		
+		this.localizedStrings = new LocalizedStrings();
+		
 		this.feedbackHelper = new FeedbackHelper();
 		
-//		if(this.appID == null || this.appID.length() == 0)
-//		{
-//			throw new Exception("You have specified an invalid App ID.");
-//		}
+		this.asyncInitialize();
 	}
 	/**
 	 * Gets the MIDlet instance the component is running into
@@ -207,9 +207,11 @@ public class RateMyApp
 	 * @param appId the Nokia Store content ID of the app
 	 * @return the RateMyApp instance
 	 */
-	public static RateMyApp init(MIDlet midlet, String appId)
+	public static RateMyApp init(MIDlet midlet, String appId, RateMyAppListener listener)
 	{
 		instance = new RateMyApp(midlet, appId);
+		
+		instance.setListener(listener);
 		
 		return instance;
 	}
@@ -217,7 +219,7 @@ public class RateMyApp
 	 * Sets a listener for visibility changes of this RateMyApp component, replacing any previous {@link com.ratemyapp.RateMyAppListener}
 	 * @param listener the new listener, on null
 	 */
-	public void setHandler(RateMyAppListener listener)
+	public void setListener(RateMyAppListener listener)
 	{
 		this.listener = listener;
 	}
@@ -437,27 +439,27 @@ public class RateMyApp
 	/**
 	 * Launches the component. The launch operation is asynchronous, since it performs blocking operations that could otherwise block the app UI.
 	 */
-	public void launch()
+	private void asyncInitialize()
 	{
 		new Thread(new Runnable()
 		{
 			public void run()
 			{
-				asynchronousLaunch();
+				initialize();
 			}
 		}).start();
 	}
 	/**
 	 * The component's asynchronous launch code
 	 */
-	private void asynchronousLaunch()
+	private void initialize()
 	{
 		this.feedbackHelper.loadState();
 		
-		if(this.languageOverride != null)
-			this.localizedStrings = new LocalizedStrings(languageOverride);
-		else
-			this.localizedStrings = new LocalizedStrings(LocaleManager.getInstance().getDefaultLocale());
+		String resourceCode = (languageOverride != null ? languageOverride : resourceCodeFromLocale(LocaleManager.getInstance().getDefaultLocale()));
+		
+		if(!localizedStrings.readResources(resourceCode) && resourceCode != null)
+			localizedStrings.readResources(null);
 		
 		while(Display.getDisplay(midlet).getCurrent() == null)
 		{
@@ -473,6 +475,32 @@ public class RateMyApp
 				e.printStackTrace();
 			}
 		}
+		if(listener != null)
+		{
+			listener.rmaComponentReady();
+		}
+	}
+	private static String resourceCodeFromLocale(Locale locale)
+	{
+		if(locale == null)
+			return null;
+		
+		String resourceCode = "";
+		
+		if(locale.getLanguage() != null)
+		{
+			resourceCode += locale.getLanguage();
+			
+			String country = locale.getCountry();
+			
+			if(country != null && country.length() > 0)
+				resourceCode += "-" + country;
+		}
+		return resourceCode;
+	}
+	public void launch()
+	{
+		feedbackHelper.launch();
 		
 		if(feedbackHelper.getState() == FeedbackHelper.FeedbackState_FirstReview)
 		{
