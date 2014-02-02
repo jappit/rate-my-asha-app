@@ -42,6 +42,14 @@ Rate My Asha App uses the same resources used for the original Windows Phone ver
 
 The current list of supported languages is: In v1.0 the component includes strings localized in the following languages: Arabic, German, English US, English UK, Spanish, Finnish, French, Hebrew, Croatian, Hungarian, Italian, Lithuanian, Dutch, Polish, Portuguese BR, Portuguese PT, Romanian, Slovenian and Chinese Simplified.
 
+### Overriding device locale
+
+The component uses the device locale to load the corresponding localized resources. A Java app can override this behavior by programmatically setting the desired language code as shown below.
+
+```
+rma.setLanguageOverride('en-US');
+```
+
 ### Custom localization
 
 If a Java app already uses localized resources, and wants to use its own localization mechanism, the library can be built without the AppResources.resx files, and then individual string resources can be programmatically set as shown below.
