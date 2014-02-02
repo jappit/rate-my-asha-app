@@ -12,19 +12,19 @@ Behavior
 --------
 The component is designed to prompt the user to rate the app on the Nokia Store. The rating dialog appears a maximum of two times: if after two prompts, the user still declines to rate the app, the prompt is not displayed anymore (the component can be programmatically reset: in this case the prompts appear again).
 
-![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_dialog.png)
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_dialog.png =180x)
 
 If the user accepts to rate the app, he's redirected to the Nokia Store review page for the app he's currently using. On current software versions of the Asha software platform the Nokia Store native client fails to correctly open the app page: for this reason the component is designed to open the app page within the device Web browser.
 
-![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_webbrowser.png)
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_webbrowser.png =180x)
 
 The first time the rating prompt is shown, if the user chooses not to rate the app, he's asked to provide feedback to the developer with an email message.
 
-![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_dialog.png)
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_dialog.png =180x)
 
 If the user accepts to send the feedback, the device email client is opened with a preformatted email message, that the user can complete with its own feedback about the app.
 
-![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_email.png)
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_email.png =180x)
 
 
 Usage example
