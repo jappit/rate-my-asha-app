@@ -1,0 +1,7 @@
+MIDlet-1: RateMyAppSample,,com.ratemyapp.sample.RateMyAppCustomResourcesSample
+MIDlet-Jar-URL: RateMyAppCustomResourcesSample.jar
+MIDlet-Name: RateMyApp
+MIDlet-Vendor: Alessandro La Rosa
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.1
