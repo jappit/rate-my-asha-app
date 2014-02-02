@@ -65,7 +65,7 @@ Localization
 
 Rate My Asha App uses the same resources used for the original Windows Phone version. For this reason, it supports the same languages, and further localizations can be easily added by using the newly added Windows Phone resource files.
 
-The current list of supported languages is: In v1.0 the component includes strings localized in the following languages: Arabic, German, English US, English UK, Spanish, Finnish, French, Hebrew, Croatian, Hungarian, Italian, Lithuanian, Dutch, Polish, Portuguese BR, Portuguese PT, Romanian, Slovenian and Chinese Simplified.
+Currently supported languages are: Arabic, German, English US, English UK, Spanish, Finnish, French, Hebrew, Croatian, Hungarian, Italian, Lithuanian, Dutch, Polish, Portuguese BR, Portuguese PT, Romanian, Slovenian and Chinese Simplified.
 
 ### Overriding device locale
 
