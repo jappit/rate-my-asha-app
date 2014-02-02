@@ -8,8 +8,8 @@ Rate My Asha App is a component for Java apps asking the user to review the app 
 The component is compatible with the Nokia Asha software platform from version 1.0 onwards.
 
 
-Behavior
---------
+How does it work?
+-----------------
 The component is designed to prompt the user to rate the app on the Nokia Store. The rating dialog appears a maximum of two times: if after two prompts, the user still declines to rate the app, the prompt is not displayed anymore (the component can be programmatically reset: in this case the prompts appear again).
 
 ![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_dialog.png)
