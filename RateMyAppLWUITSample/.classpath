@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="con" path="org.elipse.mtj.JavaMEContainer/Nokia Asha SDK 1.1/Nokia_Asha_SDK_1_1"/>
+	<classpathentry exported="true" kind="lib" path="lib/asha-with-theme.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/RateMyApp.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
