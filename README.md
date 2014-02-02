@@ -1,9 +1,9 @@
 Rate My Asha App
 ================
 
-Rate my Asha app is the porting of the original Rate My App component for Windows Phone to the Asha platform: https://github.com/nokia-developer/rate-my-app
+Rate My Asha app is the porting of the original Rate My App component for Windows Phone to the Asha platform: https://github.com/nokia-developer/rate-my-app
 
-Rate MY Asha App is a component for Java apps asking the user to review the app or send a feedback to the developer.
+Rate My Asha App is a component for Java apps asking the user to review the app or send a feedback to the developer.
 
 The component is compatible with the Nokia Asha software platform from version 1.0 onwards.
 
