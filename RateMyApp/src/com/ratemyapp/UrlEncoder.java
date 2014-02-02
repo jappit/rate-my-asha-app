@@ -30,10 +30,10 @@ final class UrlEncoder {
             else if ('0' <= ch && ch <= '9') {  // '0'..'9'
                 sbuf.append((char) ch);
             }
-            else if (ch == ' ') { // space
+            /*else if (ch == ' ') { // space
                 sbuf.append('+');
             }
-            else if (ch == '-' || ch == '_' // don't need encoding
+            */else if (ch == '-' || ch == '_' // don't need encoding
                 || ch == '.' || ch == '*') {
                 sbuf.append((char) ch);
             }
