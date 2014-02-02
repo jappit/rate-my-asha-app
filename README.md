@@ -58,3 +58,27 @@ If a Java app already uses localized resources, and wants to use its own localiz
 // localizes the rating dialog's title
 rma.setStringResource(RateMyApp.STRING_RATING_TITLE, "Sample rating title");
 ```
+
+Customization
+-------------
+
+The number of launches needed by the component to display the first and the second rating dialogs can be customized as shown below.
+
+```
+// sets the interval of the first rating dialog
+rma.setFirstCount(3);
+ 
+// sets the interval of the second rating dialog
+rma.setSecondCount(6);
+ 
+// tells the component to count only one app launch per day
+rma.setCountDays(true);
+```
+
+Other features
+--------------
+The component offers a convenient method that can be called by a Java app in order to open the Nokia Store review page.
+
+```
+rma.review();
+```
