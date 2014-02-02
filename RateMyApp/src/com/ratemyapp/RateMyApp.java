@@ -51,9 +51,8 @@ import com.nokia.mid.ui.locale.LocaleManager;
  * The component uses localized resources for all displayed text. The device 
  * default locale is used, but can be overriden via the 
  * {@link com.ratemyapp.RateMyApp#setLanguageOverride(String)} method.
- *  
  * </p>
- *
+ * 
  * <p>
  * <pre>
  * <code>
