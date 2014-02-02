@@ -7,7 +7,32 @@ Rate My Asha App is a component for Java apps asking the user to review the app 
 
 The component is compatible with the Nokia Asha software platform from version 1.0 onwards.
 
-Example usage:
+
+Behavior
+--------
+The component is designed to prompt the user to rate the app on the Nokia Store. The rating dialog appears a maximum of two times: if after two prompts, the user still declines to rate the app, the prompt is not displayed anymore (the component can be programmatically reset: in this case the prompts appear again).
+
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_dialog.png)
+
+If the user accepts to rate the app, he's redirected to the Nokia Store review page for the app he's currently using. On current software versions of the Asha software platform the Nokia Store native client fails to correctly open the app page: for this reason the component is designed to open the app page within the device Web browser.
+
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_webbrowser.png)
+
+The first time the rating prompt is shown, if the user chooses not to rate the app, he's asked to provide feedback to the developer with an email message.
+
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_dialog.png)
+
+If the user accepts to send the feedback, the device email client is opened with a preformatted email message, that the user can complete with its own feedback about the app.
+
+![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_email.png)
+
+
+Usage example
+-------------
+The component can be initialized by using the RateMyApp.init() static method with the following three arguments:
+* the MIDlet instance
+* the Nokia Store app ID
+* a listener to be notified when the component in ready
 
 ```
 RateMyApp.init(this, appID, new MyRateMyAppListener());
