@@ -11,7 +11,7 @@ import javax.microedition.midlet.MIDletStateChangeException;
 import com.ratemyapp.RateMyApp;
 import com.ratemyapp.RateMyAppListener;
 
-public class RateMyAppSample extends MIDlet implements RateMyAppListener
+public class RateMyAppSample extends MIDlet
 {
 	Form form = null;
 	
@@ -32,28 +32,33 @@ public class RateMyAppSample extends MIDlet implements RateMyAppListener
 		
 		Display.getDisplay(this).setCurrent(form);
 		
-		RateMyApp.init(this, "398118", this);
+		RateMyApp.init(this, "398118", new MyRateMyAppListener());
 	}
-	public void rmaVisibilityChanged(boolean visible)
+	
+	
+	class MyRateMyAppListener implements RateMyAppListener
 	{
-		form.append("Rate My App visibile? " + visible);
-	}
-	public void rmaComponentReady()
-	{
-		form.append("Rate My App ready");
-		
-		RateMyApp rma = RateMyApp.getInstance();
-		
-		rma.setFeedbackEmailAddress("feedback@email.com");
-		
-		rma.setStringResource(RateMyApp.STRING_RATING_TITLE, "Do you like this app?");
-		
-		rma.setFirstCount(3);
-		rma.setSecondCount(6);
-		rma.setCountDays(false);
-		
-		//rma.reset();
-		
-		rma.launch();
+		public void rmaVisibilityChanged(boolean visible)
+		{
+			form.append("Rate My App visibile? " + visible);
+		}
+		public void rmaComponentReady()
+		{
+			form.append("Rate My App ready");
+			
+			RateMyApp rma = RateMyApp.getInstance();
+			
+			rma.setFeedbackEmailAddress("feedback@email.com");
+			
+			rma.setStringResource(RateMyApp.STRING_RATING_TITLE, "Do you like this app?");
+			
+			rma.setFirstCount(3);
+			rma.setSecondCount(6);
+			rma.setCountDays(false);
+			
+			//rma.reset();
+			
+			rma.launch();
+		}
 	}
 }

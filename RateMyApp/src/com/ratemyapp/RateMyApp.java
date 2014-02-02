@@ -24,13 +24,22 @@ import com.nokia.mid.ui.locale.LocaleManager;
  * <p>
  * <pre>
  * <code>
- * RateMyApp rma = RateMyApp.init(RateMyAppSample.this, "398118");
+ * RateMyApp rma = RateMyApp.init(midlet, "398118", listener);
  * </code>
  * </pre>
  * </p>
  * 
  * <p>
- * It is possible to customize the prompts display intervals as shown below.
+ * The initialization process is asynchronous, since the component performs 
+ * blocking operations that could freeze the UI. Once the initialization 
+ * process is complete, the {@link com.ratemyapp.RateMyAppListener} is 
+ * notified via its {@link com.ratemyapp.RateMyAppListener#rmaComponentReady()} 
+ * method.
+ * </p>
+ * 
+ * <p>
+ * Once the component is ready, it is possible to customize the prompts 
+ * display intervals as shown below.
  * </p>
  *
  * <p>
