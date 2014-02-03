@@ -8,8 +8,8 @@ Rate My Asha App is a component for Java apps asking the user to review the app 
 The component is compatible with the Nokia Asha software platform from version 1.0 onwards.
 
 
-Behavior
---------
+How does it work?
+-----------------
 The component is designed to prompt the user to rate the app on the Nokia Store. The rating dialog appears a maximum of two times: if after two prompts, the user still declines to rate the app, the prompt is not displayed anymore (the component can be programmatically reset: in this case the prompts appear again).
 
 ![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_rating_dialog.png)
@@ -65,7 +65,7 @@ Localization
 
 Rate My Asha App uses the same resources used for the original Windows Phone version. For this reason, it supports the same languages, and further localizations can be easily added by using the newly added Windows Phone resource files.
 
-The current list of supported languages is: In v1.0 the component includes strings localized in the following languages: Arabic, German, English US, English UK, Spanish, Finnish, French, Hebrew, Croatian, Hungarian, Italian, Lithuanian, Dutch, Polish, Portuguese BR, Portuguese PT, Romanian, Slovenian and Chinese Simplified.
+Currently supported languages are: Arabic, German, English US, English UK, Spanish, Finnish, French, Hebrew, Croatian, Hungarian, Italian, Lithuanian, Dutch, Polish, Portuguese BR, Portuguese PT, Romanian, Slovenian and Chinese Simplified.
 
 ### Overriding device locale
 
