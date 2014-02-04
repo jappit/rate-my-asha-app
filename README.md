@@ -34,7 +34,7 @@ Usage instructions
 The component can be initialized and launched by using the `RateMyApp.init` static method with the following four arguments:
 * the MIDlet instance
 * the Nokia Store app ID
-* the feed
+* the email address for sending feedback to
 * a null listener
 
 ```
