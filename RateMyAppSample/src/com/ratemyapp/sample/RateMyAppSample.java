@@ -32,33 +32,6 @@ public class RateMyAppSample extends MIDlet
 		
 		Display.getDisplay(this).setCurrent(form);
 		
-		RateMyApp.init(this, "398118", new MyRateMyAppListener());
-	}
-	
-	
-	class MyRateMyAppListener implements RateMyAppListener
-	{
-		public void rmaVisibilityChanged(boolean visible)
-		{
-			form.append("Rate My App visibile? " + visible);
-		}
-		public void rmaComponentReady()
-		{
-			form.append("Rate My App ready");
-			
-			RateMyApp rma = RateMyApp.getInstance();
-			
-			rma.setFeedbackEmailAddress("feedback@email.com");
-			
-			rma.setStringResource(RateMyApp.STRING_RATING_TITLE, "Do you like this app?");
-			
-			rma.setFirstCount(3);
-			rma.setSecondCount(6);
-			rma.setCountDays(false);
-			
-			//rma.reset();
-			
-			rma.launch();
-		}
+		RateMyApp.init(this, "398118", "feedback@email.com", null);
 	}
 }
