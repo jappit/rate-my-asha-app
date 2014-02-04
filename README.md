@@ -107,3 +107,9 @@ The component offers a convenient method that can be called by a Java app in ord
 ```
 rma.review();
 ```
+
+Related content
+---------------
+An overview of the porting process is available on the Nokia Developer Wiki: http://developer.nokia.com/community/wiki/Porting_the_Rate_My_App_component_to_the_Asha_software_platform
+
+The original Windows Phone Rate My App component can be found here: https://github.com/nokia-developer/rate-my-app
