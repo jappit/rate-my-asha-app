@@ -1,1 +1,7 @@
-MIDlet-Jar-Size: 86234
+MIDlet-Jar-Size: 47779
+MIDlet-Jar-URL: RateMyApp.jar
+MIDlet-Name: RateMyAppLibrary
+MIDlet-Vendor: Alessandro La Rosa
+MIDlet-Version: 1.0.0-beta
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-1.0

@@ -164,7 +164,12 @@ class FeedbackHelper
             {
                 setState(FeedbackState_SecondReview);
             }	
-            storeState();
+            new Thread(){
+            	public void run()
+            	{
+            		storeState();
+            	}
+            }.start();
         }
     }
 

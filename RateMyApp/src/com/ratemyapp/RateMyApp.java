@@ -218,7 +218,21 @@ public class RateMyApp
 	 */
 	public static RateMyApp init(MIDlet midlet, String appId, RateMyAppListener listener)
 	{
+		return init(midlet, appId, null, listener);
+	}
+	
+	/**
+	 * Initializes the RateMyApp component
+	 * @param midlet the MIDlet instance the component is running into
+	 * @param appId the Nokia Store content ID of the app
+	 * @param feedbackEmail the email address to send feedback to
+	 * @return the RateMyApp instance
+	 */
+	public static RateMyApp init(MIDlet midlet, String appId, String feedbackEmail, RateMyAppListener listener)
+	{
 		instance = new RateMyApp(midlet, appId);
+		
+		instance.setFeedbackEmailAddress(feedbackEmail);
 		
 		instance.setListener(listener);
 		
@@ -484,7 +498,11 @@ public class RateMyApp
 				e.printStackTrace();
 			}
 		}
-		if(listener != null)
+		if(listener == null)
+		{
+			this.launch();
+		}
+		else
 		{
 			listener.rmaComponentReady();
 		}
