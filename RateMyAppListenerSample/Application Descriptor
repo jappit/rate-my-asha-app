@@ -1,0 +1,7 @@
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Alessandro La Rosa
+MIDlet-Jar-URL: RateMyAppListenerSample.jar
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.1
+MIDlet-1: RateMy App Listener Sample,,com.ratemyapp.sample.RateMyAppListenerSample
+MIDlet-Name: RateMyApp Listener
