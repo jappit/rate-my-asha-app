@@ -49,7 +49,7 @@ class LocalizedStrings
 		{
 			is = getClass().getResourceAsStream("/" + filename);
 			
-			isr = new InputStreamReader(is);
+			isr = new InputStreamReader(is, "UTF-8");
 			
 			KXmlParser parser = new KXmlParser();
 				

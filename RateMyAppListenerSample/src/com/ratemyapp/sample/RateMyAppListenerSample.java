@@ -32,6 +32,8 @@ public class RateMyAppListenerSample extends MIDlet
 		
 		Display.getDisplay(this).setCurrent(form);
 		
+		RateMyApp.setLanguageOverride("fr-FR");
+		
 		RateMyApp.init(this, "398118", new MyRateMyAppListener());
 	}
 	
@@ -56,7 +58,7 @@ public class RateMyAppListenerSample extends MIDlet
 			rma.setSecondCount(2);
 			rma.setCountDays(false);
 			
-			//rma.reset();
+			rma.reset();
 			
 			rma.launch();
 		}

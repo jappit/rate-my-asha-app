@@ -151,6 +151,8 @@ public class RateMyApp
 	
 	private static RateMyApp instance = null;
 	
+	private static String languageOverride = null;
+	
 	private String appID = null;
 	
 	private MIDlet midlet = null;
@@ -162,8 +164,6 @@ public class RateMyApp
 	private String feedbackEmailAddress = null;
 	
 	private Displayable appDisplayable = null;
-	
-	private String languageOverride = null;
 	
 	private RateMyAppListener listener = null;
 	
@@ -250,9 +250,9 @@ public class RateMyApp
 	 * Sets the culture code to be used for the component's string resources, overriding the device default locale.
 	 * @param language the culture code
 	 */
-	public void setLanguageOverride(String language)
+	public static void setLanguageOverride(String language)
 	{
-		this.languageOverride = language;
+		languageOverride = language;
 	}
 	/**
 	 * Sets the email address for sending feedback to
