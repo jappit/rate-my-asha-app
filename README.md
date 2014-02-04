@@ -86,8 +86,10 @@ Currently supported languages are: Arabic, German, English US, English UK, Spani
 The component uses the device locale to load the corresponding localized resources. A Java app can override this behavior by programmatically setting the desired language code as shown below.
 
 ```
-rma.setLanguageOverride('en-US');
+RateMyApp.setLanguageOverride('en-US');
 ```
+
+The above static method must be called before the `RateMyApp.init` method, otherwise it will have no effects on the locale used by the component.
 
 ### Custom localization
 
