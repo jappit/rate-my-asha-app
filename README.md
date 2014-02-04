@@ -27,18 +27,25 @@ If the user accepts to send the feedback, the device email client is opened with
 ![](http://jappit.com/m/asha/ratemyapp/images/screens/asha_ratemyapp_feedback_email.png)
 
 
-Usage example
+Usage instructions
 -------------
-The component can be initialized by using the RateMyApp.init() static method with the following three arguments:
+### Quick launch
+
+The component can be initialized and launched by using the `RateMyApp.init` static method with the following four arguments:
 * the MIDlet instance
 * the Nokia Store app ID
-* a listener to be notified when the component in ready
+* the email address for sending feedback to
+* a null listener
 
 ```
-RateMyApp.init(this, appID, new MyRateMyAppListener());
+RateMyApp.init(midlet, appID, feedbackEmailAddress, null);
 ```
 
-Where the MyRateMyAppListener class is defined as follows:
+The component initialization, having set a null listener, automatically launches the component once the necessary component's resources are loaded.
+
+### Using a listener
+
+A sample RateMyAppListener implementation is show below.
 
 ```
 class MyRateMyAppListener implements RateMyAppListener
@@ -53,12 +60,19 @@ class MyRateMyAppListener implements RateMyAppListener
 	
 		RateMyApp rma = RateMyApp.getInstance();
 		
-		rma.setFeedbackEmailAddress("feedback@email.com");
-		
 		rma.launch();
 	}
 }
 ```
+
+When a non-null listener is passed to the init method, the component is not automatically launched. This means that the Java app needs to wait for the component to be ready, as notified by the `rmaComponentReady` method of the RateMyAppListener interface, and then can launch it via its `launch` method.
+
+```
+RateMyApp.init(midlet, appID, feedbackEmailAddress, myListener);
+```
+
+By using a listener, a Java app can perform customizations of the component, such as overriding individual text resources or setting the number of launches needed before prompting the user, as shown by the following sections.
+
 
 Localization
 ------------
