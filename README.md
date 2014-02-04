@@ -38,7 +38,7 @@ The component can be initialized and launched by using the `RateMyApp.init` stat
 * a null listener
 
 ```
-RateMyApp.init(this, appID, feedbackEmailAddress, null);
+RateMyApp.init(midlet, appID, feedbackEmailAddress, null);
 ```
 
 The component initialization, having set a null listener, automatically launches the component once the necessary component's resources are loaded.
@@ -68,7 +68,7 @@ class MyRateMyAppListener implements RateMyAppListener
 When a non-null listener is passed to the init method, the component is not automatically launched. This means that the Java app needs to wait for the component to be ready, as notified by the `rmaComponentReady` method of the RateMyAppListener interface, and then can launch it via its `launch` method.
 
 ```
-RateMyApp.init(this, appID, feedbackEmailAddress, myListener);
+RateMyApp.init(midlet, appID, feedbackEmailAddress, myListener);
 ```
 
 By using a listener, a Java app can perform customizations of the component, such as overriding individual text resources or setting the number of launches needed before prompting the user, as shown by the following sections.
