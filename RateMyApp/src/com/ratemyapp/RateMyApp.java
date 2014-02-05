@@ -18,15 +18,23 @@ import com.nokia.mid.ui.locale.LocaleManager;
  *
  * <p>
  * The RateMyApp component is initialized by passing the current MIDlet 
- * instance and the Nokia Store app ID as shown below.
+ * instance, the Nokia Store app ID, the email address for sending feedback to, 
+ * and a listener as shown below.
  * </p>
  * 
  * <p>
  * <pre>
  * <code>
- * RateMyApp rma = RateMyApp.init(midlet, "398118", listener);
+ * RateMyApp rma = RateMyApp.init(midlet, "398118", "feedback@email.com", listener);
  * </code>
  * </pre>
+ * </p>
+ * 
+ * <p>
+ * If the listener passed to the init method is null, the component will be 
+ * automatically launched once the initialization process is complete, otherwise 
+ * the listener will be responsible for programmatically launching that once 
+ * it is notified of the initialization completion.
  * </p>
  * 
  * <p>
@@ -67,7 +75,7 @@ import com.nokia.mid.ui.locale.LocaleManager;
  * <pre>
  * <code>
  * // sets the component locale to 'en-US'
- * rma.setLanguageOverride('en-US');
+ * RateMyApp.setLanguageOverride('en-US');
  * 
  * </code>
  * </pre>
